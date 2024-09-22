@@ -14,9 +14,8 @@ const Board = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
+        const response = await axios.get(process.env.REACT_APP_API_KEY);
         setTickets(response.data.tickets);
-        console.log(response.data);
         setUsers(response.data.users);
       } catch (error) {
         console.error('Error fetching tickets', error);
